@@ -3028,3 +3028,13 @@ a:hover, a:visited, a:link, a:active
   flex-wrap: nowrap;
   align-items: center;
 }
+
+.header-wrapper {
+    background: rgba(255, 255, 255, 0);
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
