@@ -2981,3 +2981,50 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-100 {
+  text-align: center;
+  flex-basis: 100%;
+}
+
+.header__icons {
+  margin-left: auto;
+  margin-right: -76px
+}
+
+.header__heading {
+  margin-left: auto;
+}
+
+.header {
+  font-family: Greycliff-CF,sans-serif !important;
+  font-weight: 600;
+}
+
+.header__active-menu-item {
+  text-decoration: none !important;
+}
+ 
+
+
+summary .icon-caret {
+  display: none;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none !important;
+}
+
+.mega-menu__list {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+}
