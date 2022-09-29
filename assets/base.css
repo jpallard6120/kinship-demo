@@ -3053,3 +3053,19 @@ a:hover, a:visited, a:link, a:active
 .header-wrapper:hover .header .header__heading a img, .width_80 {
   width: 80%;
 }
+
+/* Fix for sticky announcement bar */
+#shopify-section-announcement-bar {
+  position: fixed;
+  width: 100vw;
+}
+
+#shopify-section-announcement-bar .announcement-bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.header-wrapper {
+  margin-top: 40px;
+}
