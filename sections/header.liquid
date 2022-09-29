@@ -656,6 +656,43 @@
   }
 </script>
 
+{% comment %} 
+This script applies opacity and size classes to the header and logo on scroll 
+Source for snippet: https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+{% endcomment %}
+<script>
+  let lastKnownScrollPosition = 0;
+  let ticking = false;
+  let header = document.querySelector('.header-wrapper')
+  let logo = document.querySelector('.header__heading-logo')
+  
+  function doSomething(scrollPos) {
+    if (scrollPos > 0) {
+      if (!header.classList.contains('opacity_1') && !logo.classList.contains('width_80')) {
+        logo.classList.add('width_80');
+        header.classList.add('opacity_1');
+      }
+    } else {
+      if (header.classList.contains('opacity_1') && logo.classList.contains('width_80')) {
+        logo.classList.remove('width_80');
+        header.classList.remove('opacity_1');
+      }
+    }
+  }
+  
+  document.addEventListener('scroll', (e) => {
+    lastKnownScrollPosition = window.scrollY;
+  
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        doSomething(lastKnownScrollPosition);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+</script>
+
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">

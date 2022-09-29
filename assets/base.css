@@ -2349,7 +2349,6 @@ input[type='checkbox'] {
 .header__heading-logo {
   height: auto;
   width: 100%;
-  transition: width 300ms /* This is for the smaller logo hover effect */
 }
 
 @media screen and (max-width: 989px) {
@@ -3041,12 +3040,16 @@ a:hover, a:visited, a:link, a:active
     transition: background-color 300ms /* This is for the transparency hover effect */
 }
 
-/* This is for the transparency hover effect */
-.header-wrapper:hover {
+/* This is for the transparency hover effect - The .opacity_1 class is for the JS content observer for scroll */
+.header-wrapper:hover, .opacity_1 {
   background: rgba(255, 255, 255, 1);
 }
 
-/* This is for the smaller logo hover effect */
-.header-wrapper:hover .header .header__heading a img {
+/* This is for the smaller logo hover effect - The .width_80 class is for the JS content observer for scroll */
+.header__heading-logo {
+  transition: width 300ms;
+}
+
+.header-wrapper:hover .header .header__heading a img, .width_80 {
   width: 80%;
 }
