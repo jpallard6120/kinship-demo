@@ -693,6 +693,25 @@ Source for snippet: https://developer.mozilla.org/en-US/docs/Web/API/Document/sc
   });
 </script>
 
+{% comment %} 
+Script for menu on hover
+Source: https://community.shopify.com/c/shopify-design/dawn-theme-how-to-add-the-ability-to-hover-over-dropdown-in/td-p/1331671
+{% endcomment %}
+<script>
+    let items = document.querySelector(".header__inline-menu").querySelectorAll("details");
+    items.forEach(item => {
+      item.addEventListener("mouseover", () => {
+        item.setAttribute("open", true);
+        item.querySelector("ul").addEventListener("mouseleave", () => {
+          item.removeAttribute("open");
+        });
+      item.addEventListener("mouseleave", () => {
+        item.removeAttribute("open");
+      });
+    }); 
+    });
+</script>
+
 {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">

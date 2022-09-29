@@ -3003,13 +3003,14 @@ details-disclosure > details {
   margin-left: auto;
 }
 
+/* START CUSTOM STYLES */
 .header {
-  font-family: Greycliff-CF,sans-serif !important;
+  font-family: Greycliff-CF,sans-serif !important; /* I know !important is evil */
   font-weight: 600;
 }
 
 .header__active-menu-item {
-  text-decoration: none !important;
+  text-decoration: none !important; /* I know !important is evil */
 }
  
 
@@ -3020,11 +3021,11 @@ summary .icon-caret {
 
 a:hover, a:visited, a:link, a:active
 {
-    text-decoration: none !important;
+    text-decoration: none !important; /* I know !important is evil */
 }
 
 .mega-menu__list {
-  display: flex !important;
+  display: flex !important; /* I know !important is evil */
   flex-wrap: nowrap;
   align-items: center;
 }
@@ -3068,4 +3069,21 @@ a:hover, a:visited, a:link, a:active
 
 .header-wrapper {
   margin-top: 40px;
+}
+
+/* Styling tweaks */
+.list-menu li .header__menu-item span {
+  color: #002798;
+  font-size: 1.2em;
+}
+
+/* Styling to correct hover interaction
+We have to put the padding on the element instead of the container to avoid the mouseleave interaction between the element and the menu */
+
+.mega-menu {
+  padding-bottom: 20px;
+}
+
+.header {
+  padding-bottom: 0 !important; /* I know !important is evil */
 }
