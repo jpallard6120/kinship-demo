@@ -1,5 +1,60 @@
 {
   "sections": {
+    "166447813872c37164": {
+      "type": "image-banner",
+      "blocks": {
+        "16644781388c6bae7c-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "GLYCOLIC FOR ALL",
+            "heading_size": "giant-text",
+            "heading_color": "#ba0c31",
+            "text-shadow": true
+          }
+        },
+        "16644781388c6bae7c-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience the magical pore-shrinking, texture-smoothing + brightening powers of <strong>Self Smooth <\/strong>- without the irritation. <\/p>",
+            "text_style": "body",
+            "subtitle_color": "#ba0c31",
+            "subtitle_font_size": "2.8",
+            "subtitle_line_height": "1.3"
+          }
+        },
+        "16644781388c6bae7c-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "shop now",
+            "button_link_1": "#",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "16644781388c6bae7c-0",
+        "16644781388c6bae7c-1",
+        "16644781388c6bae7c-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/HP_Hero_D_SelfSmooth_2_1920x_notext.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "adapt_height_first_image": true,
+        "full_width": true,
+        "desktop_content_position": "middle-right",
+        "basis_width": "width-40",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "transparent",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "settings": {
@@ -7,7 +62,9 @@
         "image_overlay_opacity": 0,
         "image_height": "large",
         "adapt_height_first_image": true,
+        "full_width": false,
         "desktop_content_position": "bottom-center",
+        "basis_width": "width-20",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "background-1",
@@ -180,6 +237,7 @@
     }
   },
   "order": [
+    "166447813872c37164",
     "image_banner",
     "rich_text",
     "featured_collection",
