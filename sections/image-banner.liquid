@@ -85,18 +85,18 @@
         alt: section.settings.image_2.alt | escape
       }}
     </div>
-  {%- endif -%}
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+  {%- endif -%} 
+  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} {% if section.settings.full_width == false %}page-width{% endif %}">
+    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient {{ section.settings.basis_width }}">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+            <h2 class="banner__heading {{ block.settings.heading_size }} {% if block.settings.text-shadow %}text-shadow{% endif %}" {{ block.shopify_attributes }} style="color: {{ block.settings.heading_color }}">
               <span>{{ block.settings.heading | escape }}</span>
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.text | escape }}</span>
+            <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }} style="color:{{ block.settings.subtitle_color }}; {% if block.settings.subtitle_font_size %}font-size:{{ block.settings.subtitle_font_size }}rem;{% endif %} {% if block.settings.subtitle_line_height %}line-height:{{ block.settings.subtitle_line_height }};{% endif %}">
+              <span>{{ block.settings.text }}</span>
             </div>
           {%- when 'buttons' -%}
             <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
@@ -169,6 +169,13 @@
       "info": "t:sections.image-banner.settings.adapt_height_first_image.info"
     },
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Make section full width",
+      "info": "Removes the max-width class"
+    },
+    {
       "type": "select",
       "id": "desktop_content_position",
       "options": [
@@ -211,6 +218,33 @@
       ],
       "default": "middle-center",
       "label": "t:sections.image-banner.settings.desktop_content_position.label"
+    },
+    {
+      "type": "select",
+      "id": "basis_width",
+      "label": "Flex Basis width of section",
+      "options": [
+        {
+          "value": "width-20",
+          "label": "20%"
+        },
+        {
+          "value": "width-40",
+          "label": "40%"
+        },
+        {
+          "value": "width-60",
+          "label": "60%"
+        },
+        {
+          "value": "width-80",
+          "label": "80%"
+        },
+        {
+          "value": "width-100",
+          "label": "100%"
+        }
+      ]
     },
     {
       "type": "checkbox",
@@ -261,6 +295,10 @@
         {
           "value": "inverse",
           "label": "t:sections.all.colors.inverse.label"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent"
         }
       ],
       "default": "background-1",
@@ -331,10 +369,26 @@
             {
               "value": "h0",
               "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "giant-text",
+              "label": "Ginormous"
             }
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading custom color",
+          "default": "#000"
+        },
+        {
+          "type": "checkbox",
+          "id": "text-shadow",
+          "label": "Add text shadow",
+          "default": true
         }
       ]
     },
@@ -344,9 +398,8 @@
       "limit": 1,
       "settings": [
         {
-          "type": "text",
+          "type": "richtext",
           "id": "text",
-          "default": "Give customers details about the banner image(s) or content on the template.",
           "label": "t:sections.image-banner.blocks.text.settings.text.label"
         },
         {
@@ -368,6 +421,22 @@
           ],
           "default": "body",
           "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "color",
+          "id": "subtitle_color",
+          "label": "Custom text color",
+          "default": "#000"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_font_size",
+          "label": "Custom text size (in REM)"
+        },
+        {
+          "type": "text",
+          "id": "subtitle_line_height",
+          "label": "Custom line height"
         }
       ]
     },
