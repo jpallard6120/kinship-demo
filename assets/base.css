@@ -3152,3 +3152,16 @@ We have to put the padding on the element instead of the container to avoid the 
   animation: text-shadow-fade-in 1s forwards 1s;
   -webkit-animation: text-shadow-fade-in 1s forwards 1s;
 }
+
+.button-slide-animation {
+  background: linear-gradient(to right, rgba(186, 12, 50, 1) 50%, white 50%);
+  background-size: 200%;
+  background-position: right;
+  transition: .5s ease-out;
+  color: #ba0c32;
+}
+
+.button-slide-animation:hover {
+  background-position: left;
+  color: #fff;
+}
