@@ -28,11 +28,15 @@
 .js .mega-menu__content {
   opacity: 0;
   transform: translateY(-1.5rem);
+  transition: 500ms;
+  animation-iteration-count:infinite
 }
 
 .mega-menu[open] .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
+  transition: 500ms;
+  animation-iteration-count:infinite
 }
 
 .mega-menu__list {
